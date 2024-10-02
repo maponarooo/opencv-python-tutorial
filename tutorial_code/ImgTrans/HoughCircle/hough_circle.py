@@ -5,7 +5,7 @@ import numpy as np
 
 def main(argv):
     ## [load]
-    default_file = 'smarties.png'
+    default_file = 'ball.jpg'
     filename = argv[0] if len(argv) > 0 else default_file
 
     # Loads an image
@@ -30,9 +30,12 @@ def main(argv):
 
     ## [houghcircles]
     rows = gray.shape[0]
+    # circles = cv.HoughCircles(gray, cv.HOUGH_GRADIENT, 1, rows / 8,
+    #                            param1=100, param2=30,
+    #                            minRadius=1, maxRadius=30)
     circles = cv.HoughCircles(gray, cv.HOUGH_GRADIENT, 1, rows / 8,
-                               param1=100, param2=30,
-                               minRadius=1, maxRadius=30)
+                               param1=90, param2=30,
+                               minRadius=30, maxRadius=150)
     ## [houghcircles]
 
     ## [draw]
